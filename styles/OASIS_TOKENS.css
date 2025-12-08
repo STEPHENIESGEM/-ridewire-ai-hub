@@ -1,0 +1,16 @@
+:root {
+  --oasis-sand: #FAD9B2;
+  --oasis-blue: #A0E6EC;
+  --oasis-sunset: #FFD2DC;
+  --oasis-palm: #5FB674;
+  --oasis-glow: #FDEE7A;
+  --bg: #0b1220;
+  --muted: #94a3b8;
+  --card: #0f1724;
+  --radius: 12px;
+  --shadow-soft: 0 8px 24px rgba(5, 10, 18, 0.5);
+}
+
+.oasis-card { /* ... */ }
+.oasis-btn { /* ... */ }
+.oasis-badge { /* ... */ }
