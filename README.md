@@ -91,16 +91,17 @@ ridewire-ai-hub/
 │   ├── layout.tsx           # Root layout with header
 │   ├── page.tsx             # Home page with feed & garage sidebar
 │   └── globals.css          # TailwindCSS + custom animations
-├── components/              # React components (to be added)
-├── lib/                      # Utilities & helpers
-├── public/                  # Static assets
 ├── .env.example             # Environment variables template
-├── package.json             # Dependencies
-├── next.config.js           # Next.js configuration
-├── tailwind.config.js       # TailwindCSS theme
-├── tsconfig.json            # TypeScript configuration
+├── .gitignore               # Git ignore rules
 ├── CONTRIBUTING.md          # Contribution guidelines
-└── LICENSE                  # MIT License
+├── GO_TO_MARKET_STRATEGY.md # Go-to-market strategy
+├── LICENSE                  # MIT License
+├── README.md                # This file
+├── SETUP.md                 # Detailed setup and development roadmap
+├── next.config.js           # Next.js configuration
+├── package.json             # Dependencies
+├── tailwind.config.js       # TailwindCSS theme
+└── tsconfig.json            # TypeScript configuration
 ```
 
 ## 🤝 Contributing
