@@ -1,0 +1,76 @@
+RIDEWIRE GUMROAD PRODUCT LISTINGS
+
+=== PRODUCT 1: MARS BIOMINERALIZATION ===
+Price: $9.99
+Framework: Claude AI (RW-CLD-001)
+
+Description:
+Unlock advanced insights into extraterrestrial mineralogy with this AI-powered diagnostic analysis. Our Claude-based framework examines biomineralization processes on Mars, exploring how biological and geological systems could interact in Martian environments.
+
+What you get:
+- Comprehensive analysis of Mars mineral composition
+- Habitability assessment for biological systems
+- Resource extraction potential evaluation
+- Implementation frameworks for Mars colonization
+
+=== PRODUCT 2: CLIMATE DIRECT AIR CAPTURE ===
+Price: $9.99  
+Framework: Google Gemini AI (RW-GEM-002)
+
+Description:
+Discover practical pathways to climate mitigation through Direct Air Capture (DAC). Our Gemini-powered diagnostic reveals cost structures, scalability scenarios, and implementation timelines for deploying DAC technology at scale.
+
+What you get:
+- Cost-benefit analysis for DAC technologies
+- Feasibility assessment by deployment scenario
+- Scalability pathways to gigatonne capacity
+- Carbon capture integration frameworks
+
+=== PRODUCT 3: CULTIVATED MEAT PRODUCTION ===
+Price: $9.99
+Framework: Google Gemini AI (RW-GEM-003)
+
+Description:
+Navigate the future of food production with our comprehensive cultivated meat analysis. This Gemini AI diagnostic explores cost parity timelines, production scaling models, and market disruption projections.
+
+What you get:
+- Production cost trend analysis
+- Path to cost parity with conventional meat
+- Scaling scenarios to commercial viability
+- Market timeline and adoption projections
+
+=== PRODUCT 4: GOVERNANCE POLICY ANALYSIS ===
+Price: $9.99
+Framework: Perplexity AI (RW-PER-004)
+
+Description:
+Understand complex policy implementation with our Perplexity-powered governance diagnostic. Explore frameworks for institutional change, UBI implementation, and paradigm shifts in work organization.
+
+What you get:
+- Policy complexity mapping
+- UBI and work paradigm frameworks
+- Institutional change pathways
+- Implementation success factors
+
+=== PRODUCT 5: DEVELOPMENT & JUSTICE ===
+Price: $9.99
+Framework: Llama AI (RW-LMA-005)
+
+Description:
+Build equitable development frameworks with our Llama-powered analysis. This diagnostic examines global South capacity building, just transitions, and regenerative development pathways.
+
+What you get:
+- State capacity assessments
+- Just transition frameworks
+- Regenerative development principles
+- Global South implementation guides
+
+=== BUNDLE PRICING ===
+Individual: $9.99 each
+3-Report Bundle: $24.99 (33% savings)
+Complete 5-Report Suite: $39.99 (20% savings)
+
+=== DELIVERY FORMAT ===
+All products delivered as PDF files instantly upon purchase
+All frameworks sourced from RideWire Protocol
+Updatable with new AI models as technology evolves
