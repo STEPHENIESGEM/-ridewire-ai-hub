@@ -1,10 +1,14 @@
 // Email service with SendGrid integration and safety features
+// NOTE: In production, SendGrid API key should be accessed via server-side API route
+// to prevent client-side exposure. Current implementation is for demonstration only.
 
 const SENDGRID_API_KEY = process.env.NEXT_PUBLIC_SENDGRID_API_KEY;
 const FOUNDER_EMAIL = process.env.NEXT_PUBLIC_FOUNDER_EMAIL || "founder@ridewire.ai";
 const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "RideWire Inc.";
 
 // Rate limiting
+// NOTE: In production, this should use persistent storage (Redis, database)
+// to work correctly across restarts and multi-instance deployments
 const emailsSentToday: Date[] = [];
 const MAX_EMAILS_PER_DAY = 100;
 const MIN_DELAY_BETWEEN_EMAILS = 5000; // 5 seconds

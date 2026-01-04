@@ -29,12 +29,13 @@ const LegalWaiver: React.FC<LegalWaiverProps> = ({ onAccept }) => {
   const handleAccept = () => {
     if (canAccept) {
       // Store acceptance in localStorage
+      // NOTE: In production, IP address should be captured server-side for accurate audit trails
       const waiverData = {
         accepted: true,
         timestamp: new Date().toISOString(),
         fullName,
         version: '1.0.0',
-        ipAddress: 'client-side' // In production, get from server
+        ipAddress: 'client-side' // TODO: Capture from server-side API
       };
       localStorage.setItem('ridewire_legal_waiver', JSON.stringify(waiverData));
       onAccept();

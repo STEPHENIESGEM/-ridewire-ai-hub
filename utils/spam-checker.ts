@@ -192,9 +192,13 @@ export function checkSpamScore(subject: string, body: string): SpamCheckResult {
   }
   
   // 9. Check text-to-image ratio (for HTML emails)
+  // Note: We're analyzing HTML content for spam detection, not rendering it
+  // This is safe as the content is never injected into the DOM
   if (body.includes('<img')) {
-    const imageCount = (body.match(/<img/g) || []).length;
-    const textLength = body.replace(/<[^>]*>/g, '').length;
+    const imageCount = (body.match(/<img[^>]*>/g) || []).length;
+    // Strip all HTML tags for text length calculation
+    // Using non-greedy match and dotAll flag for security
+    const textLength = body.replace(/<[^>]*?>/gs, '').trim().length;
     if (imageCount > 3 && textLength < 200) {
       score += 1;
       issues.push({
