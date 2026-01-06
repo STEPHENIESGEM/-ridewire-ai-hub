@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis - Social AR AI Home</title>
+  <style>
+    :root{
+      --sand: #FAD9B2;
+      --blue: #A0E6EC;
+      --sun: #FFD2DC;
+      --palm: #5FB674;
+      --glow: #FDEE7A;
+      --bg: #07101a;
+      --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --radius: 14px;
+      --soft-shadow: 0 12px 40px rgba(2,6,23,0.6);
+      --glass: rgba(255,255,255,0.03);
+      --muted: #94a3b8;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    body {
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(160,230,236,0.06), transparent 10%),
+                  radial-gradient(900px 400px at 90% 80%, rgba(95,182,116,0.04), transparent 8%),
+                  var(--bg);
+      color: #e6f0f2;
+      margin: 0;
+      padding: 28px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+    
+    h1 { 
+      font-size: 2.5rem; 
+      font-weight: 800; 
+      background: linear-gradient(90deg, var(--blue), var(--palm));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
+
+    .oasis-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--glass);
+      box-shadow: var(--soft-shadow);
+      margin-bottom: 20px;
+    }
+
+    .oasis-btn {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 20px;
+      border-radius:12px;
+      border:none;
+      background: linear-gradient(90deg,var(--blue),var(--palm));
+      color:#062126;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform 160ms cubic-bezier(.2,.9,.2,1), box-shadow 160ms;
+      text-decoration: none;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .oasis-btn:active{ transform: translateY(1px) scale(.998); }
+    .oasis-btn:hover{ transform: translateY(-4px); box-shadow: 0 18px 48px rgba(95,182,116,0.12); }
+
+    .avatar {
+      width:56px; height:56px; border-radius:50%; overflow:hidden; flex-shrink:0;
+      border: 2px solid rgba(255,255,255,0.04);
+      background: linear-gradient(180deg,var(--sun),var(--sand));
+      display:inline-flex; align-items:center; justify-content:center; color:#062126; font-weight:800;
+      margin-right: 12px;
+    }
+
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .room-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--glass);
+      box-shadow: var(--soft-shadow);
+      cursor: pointer;
+      transition: transform 200ms, box-shadow 200ms;
+    }
+
+    .room-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 48px rgba(95,182,116,0.12);
+    }
+
+    .room-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+
+    .room-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .room-members {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .sparkle {
+      width:8px; height:8px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--glow));
+      box-shadow: 0 6px 18px rgba(253,238,122,0.22);
+      display:inline-block;
+      transform-origin:center;
+      animation: float 4s infinite ease-in-out;
+      margin: 0 4px;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    .chat-container {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--glass);
+      box-shadow: var(--soft-shadow);
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .chat-row{ display:flex; gap:12px; align-items:flex-start; margin-bottom:16px; }
+    .chat-bubble {
+      max-width:68%;
+      padding:12px 14px;
+      border-radius:12px;
+      background: rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.02);
+      color: #ddeaf0;
+      line-height:1.4;
+      box-shadow: 0 6px 18px rgba(3,7,14,0.45);
+    }
+
+    .chat-bubble.ai { 
+      background: linear-gradient(90deg, rgba(160,230,236,0.06), rgba(95,182,116,0.03)); 
+      border:1px solid rgba(160,230,236,0.06); 
+      color:#e6f0f2; 
+    }
+
+    .agent-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    @media (max-width:720px){
+      body{padding:16px;}
+      .chat-bubble{max-width:84%;}
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌴 Welcome to Oasis</h1>
+      <p class="subtitle">Your Social AR AI Home — Where people and AI agents meet, chat, and collaborate.</p>
+      <button class="oasis-btn" onclick="alert('Coming soon: Authentication')">🔐 Sign In</button>
+      <button class="oasis-btn" onclick="alert('Coming soon: Create Account')">✨ Create Account</button>
+    </header>
+
+    <div class="oasis-card">
+      <h2>🏡 Explore Spaces</h2>
+      <p style="color: var(--muted); margin-bottom: 20px;">
+        Choose a room to join. Each space has its own vibe and AI agents ready to help.
+      </p>
+      
+      <div class="room-grid">
+        <div class="room-card" onclick="showRoom('living')">
+          <div class="room-title">🛋️ Living Room</div>
+          <div class="room-desc">Casual hangout. Chat with friends and AI assistants.</div>
+          <div class="room-members">
+            <span class="sparkle"></span>
+            <span>4 members · 2 AI agents online</span>
+          </div>
+        </div>
+
+        <div class="room-card" onclick="showRoom('garden')">
+          <div class="room-title">🌿 Garden</div>
+          <div class="room-desc">A calm space for reflection and creative work.</div>
+          <div class="room-members">
+            <span class="sparkle"></span>
+            <span>2 members · 1 AI agent online</span>
+          </div>
+        </div>
+
+        <div class="room-card" onclick="showRoom('studio')">
+          <div class="room-title">🎨 Studio</div>
+          <div class="room-desc">Collaborate on projects with specialized AI tools.</div>
+          <div class="room-members">
+            <span class="sparkle"></span>
+            <span>6 members · 3 AI agents online</span>
+          </div>
+        </div>
+
+        <div class="room-card" onclick="showRoom('lab')">
+          <div class="room-title">🔬 AI Lab</div>
+          <div class="room-desc">Experiment with cutting-edge models and agents.</div>
+          <div class="room-members">
+            <span class="sparkle"></span>
+            <span>8 members · 5 AI agents online</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-container" id="chatDemo" style="display: none;">
+      <h2>💬 Chat Preview</h2>
+      <p style="color: var(--muted); margin-bottom: 20px;">Sample conversation in a room with AI agents</p>
+      
+      <div class="chat-row">
+        <div class="avatar">JD</div>
+        <div>
+          <div class="chat-bubble">
+            Hey everyone! Just joined this room. What are we working on today?
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-row">
+        <div class="avatar">🤖</div>
+        <div>
+          <div class="agent-label">AI Assistant - Maya</div>
+          <div class="chat-bubble ai">
+            Welcome, JD! We're currently brainstorming ideas for a new social feature. Feel free to jump in with your thoughts!
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-row">
+        <div class="avatar">SK</div>
+        <div>
+          <div class="chat-bubble">
+            I think we should focus on making the rooms more interactive. Maybe add some spatial audio?
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-row">
+        <div class="avatar">🤖</div>
+        <div>
+          <div class="agent-label">AI Agent - Tech Advisor</div>
+          <div class="chat-bubble ai">
+            Great idea! Spatial audio would enhance the immersive experience. WebRTC supports this, and we could use the Web Audio API for positioning. Would you like me to draft a technical proposal?
+          </div>
+        </div>
+      </div>
+
+      <button class="oasis-btn" onclick="alert('Coming soon: Full chat functionality')">💬 Join Conversation</button>
+      <button class="oasis-btn" onclick="document.getElementById('chatDemo').style.display='none'">← Back to Rooms</button>
+    </div>
+
+    <div class="oasis-card" style="margin-top: 40px;">
+      <h2>✨ Features Coming Soon</h2>
+      <ul style="color: var(--muted); line-height: 1.8;">
+        <li><strong style="color: var(--blue);">Multi-Agent Orchestration:</strong> Multiple AI agents collaborate in the same conversation</li>
+        <li><strong style="color: var(--palm);">Voice Chat:</strong> Speak naturally with voice-to-text integration</li>
+        <li><strong style="color: var(--sun);">AR Mode:</strong> View rooms in augmented reality using WebXR</li>
+        <li><strong style="color: var(--glow);">Agent Marketplace:</strong> Discover and add third-party AI agents</li>
+        <li><strong style="color: var(--sand);">Smart Memory:</strong> AI agents remember context across sessions</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function showRoom(roomType) {
+      document.getElementById('chatDemo').style.display = 'block';
+      document.getElementById('chatDemo').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
